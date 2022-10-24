@@ -1,8 +1,18 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import Logo from '../../Images/Logo.png'
+import Logo from '../../Images/Logo.png';
+import UserIcon from '../../Images/usericon.png'
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handelLogOut =()=>{
+    logOut()
+    .then(result=>{})
+    .catch(error =>{})
+  }
+  console.log(user);
     return (
       <div className="navbar bg-primary text-primary-content">
         <div className="flex-1">
@@ -28,20 +38,32 @@ const Header = () => {
 
         <div className="flex-none gap-2">
           <div className="mx-auto">
-            <Link to={"/register"} className="ml-3 font-semibold ">
-              Register
-            </Link>
-            <Link to={"/login"} className="ml-3 font-semibold">
-              Login
-            </Link>
-            <Link to={"/logout"} className="ml-3 font-semibold">
-              Logout
-            </Link>
+            {user?.uid ? (
+              <Link onClick={handelLogOut} className="ml-3 font-semibold">
+                Logout
+              </Link>
+            ) : (
+              <>
+                <Link to={"/login"} className="ml-3 font-semibold">
+                  Login
+                </Link>
+                <Link to={"/register"} className="ml-3 font-semibold ">
+                  Register
+                </Link>
+              </>
+            )}
           </div>
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-                <img src={`https://placeimg.com/80/80/people`} alt="" />
+              <div className="w-8 rounded-full">
+                {user?.uid ? (
+                  <img
+                    src={user?.photoURL}
+                    alt=""
+                  />
+                ) : (
+                 <img src={UserIcon} alt="" />
+                )}
               </div>
             </label>
           </div>
