@@ -1,11 +1,25 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Shared/AuthProvider/AuthProvider';
 
 const Register = () => {
+  const {createUser} = useContext(AuthContext)
+
+  const handelRegister=(e)=>{
+    e.preventDefault()
+    const form = e.target;
+    const name = form.name.value;
+    const photoURL = form.photoURL.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    createUser(email,password)
+    console.log(name, email, password, photoURL);
+  }
     return (
       <div className="hero min-h-screen bg-base-200">
         <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
-          <div className="card-body">
+          <form onSubmit={handelRegister} className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Full Name</span>
@@ -14,6 +28,17 @@ const Register = () => {
                 type="text"
                 name="name"
                 placeholder="full name"
+                className="input input-bordered"
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Photo URL</span>
+              </label>
+              <input
+                type="text"
+                name="photoURL"
+                placeholder="photo url"
                 className="input input-bordered"
               />
             </div>
@@ -50,7 +75,7 @@ const Register = () => {
             <div className="form-control mt-6">
               <button className="btn btn-primary">Register</button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     );
