@@ -104,22 +104,20 @@ const Login = () => {
             <div className="form-control mt-6">
               <button className="btn btn-primary">Login</button>
             </div>
-            <div className="flex justify-between">
-              <button
-                onClick={handelGoogleSingIn}
-                className="btn  btn-primary "
-              >
-                <FaGoogle className="mr-2" />
-                Login with Google
-              </button>
-              <button onClick={handelGithubLogIn} className="btn btn-primary ">
-                <FaGithub className="mr-2" />
-                Login with GitHub
-              </button>
-            </div>
           </form>
+          <div className="flex justify-between items-center pb-8 px-8">
+            <button onClick={handelGoogleSingIn} className="btn  btn-primary ">
+              <FaGoogle className="mr-2" />
+              Login with Google
+            </button>
+            <p className="text-xl">Or</p>
+            <button onClick={handelGithubLogIn} className="btn btn-primary ">
+              <FaGithub className="mr-2" />
+              Login with GitHub
+            </button>
+          </div>
         </div>
-        <ToastContainer/>
+        <ToastContainer />
       </div>
     );
 };
