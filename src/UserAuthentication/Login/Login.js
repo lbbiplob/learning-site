@@ -1,47 +1,69 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaGithub , FaGoogle } from "react-icons/fa";
-import { GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { useContext } from 'react';
 import { AuthContext } from '../../Shared/AuthProvider/AuthProvider';
 import { useState } from 'react';
+ import { ToastContainer, toast } from "react-toastify";
+ import "react-toastify/dist/ReactToastify.css";
 
 
 const Login = () => {
-  const { googleLogin, emailPasswordLogIn } = useContext(AuthContext);
+  const { googleLogin, emailPasswordLogIn, gitHubLogIn } =
+    useContext(AuthContext);
   const [error , setError] = useState('');
   const navigate = useNavigate();
-
+    const gitHubProvider = new GithubAuthProvider();
     const provider = new GoogleAuthProvider();
     const handelGoogleSingIn= () =>{
       googleLogin(provider)
       .then(result =>{
         const user = result.user;
-        navigate("/");
+        setError('')
+        navigate('/');
         console.log(user);
       })
       .catch(error =>{
         console.error(error);
+        setError(error.massage);
       })
     
+    };
+    const handelGithubLogIn =()=>{
+      gitHubLogIn(gitHubProvider)
+      .then(result=>{
+        const user = result.user;
+        setError('')
+      })
+      .catch(error=>{
+        console.error(error);
+        setError(error.massage);
+      })
     }
      const hendelEmailPasswordSingIn = (e) => {
+      
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
         emailPasswordLogIn(email, password)
           .then((result) => {
+             
             const user = result.user;
+            setError("");
             form.reset();
             navigate('/');
             console.log(user);
+          
           })
           .catch((error) => {
             form.reset()
             setError('Email & Password not match')
           });
      };
+
+    
    
 
     return (
@@ -90,13 +112,14 @@ const Login = () => {
                 <FaGoogle className="mr-2" />
                 Login with Google
               </button>
-              <button className="btn btn-primary ">
+              <button onClick={handelGithubLogIn} className="btn btn-primary ">
                 <FaGithub className="mr-2" />
                 Login with GitHub
               </button>
             </div>
           </form>
         </div>
+        <ToastContainer/>
       </div>
     );
 };

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Shared/AuthProvider/AuthProvider';
 
 const Register = () => {
-  const {createUser} = useContext(AuthContext)
+  const { createUser, updateUserDetails } = useContext(AuthContext);
 
   const handelRegister=(e)=>{
     e.preventDefault()
@@ -13,9 +13,28 @@ const Register = () => {
     const photoURL = form.photoURL.value;
     const email = form.email.value;
     const password = form.password.value;
+    
     createUser(email,password)
+    .then(result=>{
+      const user = result.user;
+      console.log(user);
+      form.reset();
+      userProfileUpdate(name, photoURL);
+    })
+    .catch(error =>{})
+    
     console.log(name, email, password, photoURL);
-  }
+  };
+   const userProfileUpdate = (name, photoURL)=>{
+    const profile = {
+      displayName: name,
+      photoURL: photoURL,
+    };
+    console.log(profile); 
+    updateUserDetails(profile)
+    .then(result=>{})
+    .catch(error=>{console.error(error)})
+   }
     return (
       <div className="hero min-h-screen bg-base-200">
         <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
@@ -58,7 +77,7 @@ const Register = () => {
                 <span className="label-text">Password</span>
               </label>
               <input
-                type="text"
+                type="password"
                 name="password"
                 placeholder="password"
                 className="input input-bordered"
