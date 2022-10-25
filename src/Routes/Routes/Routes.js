@@ -24,6 +24,7 @@ export const router = createBrowserRouter([
       {
         path: "/courses",
         element: <Courses></Courses>,
+        loader: () => fetch("http://localhost:5000/courses"),
       },
       {
         path: "/blog",
@@ -43,7 +44,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/logout",
-        element: <Logout></Logout>
+        element: <Logout></Logout>,
       },
     ],
   },
