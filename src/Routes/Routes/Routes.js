@@ -40,17 +40,6 @@ export const router = createBrowserRouter([
           },
         ],
       },
-      // {
-      //   path: "/courses",
-      //   element: <Courses></Courses>,
-      //   loader: () => fetch("http://localhost:5000/courses"),
-      // },
-      // {
-      //   path: "/course/:id",
-      //   element: <CourseDetails></CourseDetails>,
-      //   loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`),
-      // },
-
       {
         path: "/blog",
         element: <Blogs></Blogs>,

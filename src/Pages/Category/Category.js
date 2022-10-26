@@ -5,7 +5,7 @@ const Category = ({ category }) => {
     const {name, id} = category;
   return (
     <li>
-      <Link to={`/course/${id}`}>{name}</Link>
+      <Link to={`/courses/${id}`}>{name}</Link>
     </li>
   );
 };
