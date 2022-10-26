@@ -22,7 +22,7 @@ const CourseDetails = () => {
               Price:${price}
             </h3>
           </div>
-          <div className="card-actions ">
+          <div>
             <Link className="btn btn-primary">Buy Now</Link>
           </div>
           <div>

@@ -57,16 +57,19 @@ const Header = () => {
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-8 rounded-full">
                 {user?.uid ? (
-                  <img
-                    src={user?.photoURL}
-                    alt=""
-                  />
+                  <img src={user?.photoURL} alt="" />
                 ) : (
-                 <img src={UserIcon} alt="" />
+                  <img src={UserIcon} alt="" />
                 )}
               </div>
             </label>
           </div>
+        </div>
+        <div className="form-control">
+          <label className="label cursor-pointer">
+            <span className="label-text">Remember me</span>
+            <input type="checkbox" className="toggle"  />
+          </label>
         </div>
       </div>
     );
