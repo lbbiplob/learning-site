@@ -17,7 +17,9 @@ const Course = ({ course }) => {
           <h3 className="text-blue-700 font-bold ml-3">Price:${price}</h3>
         </div>
         <div>
-          <Link className="btn btn-primary w-full">Buy Now</Link>
+          <Link to={`/chackout/${id}`} className="btn btn-primary w-full">
+            Buy Now
+          </Link>
         </div>
         <div className="mx-auto">
           <Link to={`/courses/${id}`} className="btn btn-primary ">

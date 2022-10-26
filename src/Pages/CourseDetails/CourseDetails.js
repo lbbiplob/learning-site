@@ -3,7 +3,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 
 const CourseDetails = () => {
     const courseDetails = useLoaderData();
-    const { details, image_url, price, teacher, rating, title } = courseDetails;
+    const { details, image_url, price, teacher, rating, title, id } = courseDetails;
     console.log(CourseDetails);
     return (
       <div className="card col-span-3 bg-base-100 shadow-xl">
@@ -23,7 +23,7 @@ const CourseDetails = () => {
             </h3>
           </div>
           <div>
-            <Link className="btn btn-primary">Buy Now</Link>
+            <Link to={`/chackout/${id}`} className="btn btn-primary">Buy Now</Link>
           </div>
           <div>
             <Link to={"/courses"} className="btn btn-primary">

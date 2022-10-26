@@ -1,10 +1,12 @@
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Shared/AuthProvider/AuthProvider';
 
 const Register = () => {
   const { createUser, updateUserDetails } = useContext(AuthContext);
+  const [error, setError] = useState(' ')
 
   const handelRegister=(e)=>{
     e.preventDefault()
@@ -19,11 +21,14 @@ const Register = () => {
       const user = result.user;
       console.log(user);
       form.reset();
+      setError(' ')
       userProfileUpdate(name, photoURL);
     })
-    .catch(error =>{})
+    .catch(error =>{
+      setError(error.message);
+      form.reset();
+    })
     
-    console.log(name, email, password, photoURL);
   };
    const userProfileUpdate = (name, photoURL)=>{
     const profile = {
@@ -32,8 +37,11 @@ const Register = () => {
     };
     console.log(profile); 
     updateUserDetails(profile)
-    .then(result=>{})
-    .catch(error=>{console.error(error)})
+    .then(result=>{setError(' ')})
+    .catch(error=>{
+      setError(error.message);
+    
+    })
    }
     return (
       <div className="hero min-h-screen bg-base-200">
@@ -91,6 +99,7 @@ const Register = () => {
                 </p>
               </label>
             </div>
+            <p className="text-amber-500">{error}</p>
             <div className="form-control mt-6">
               <button className="btn btn-primary">Register</button>
             </div>

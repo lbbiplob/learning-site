@@ -9,6 +9,8 @@ import Login from "../../UserAuthentication/Login/Login"
 import Logout from "../../UserAuthentication/LogOut/LogOut"
 import CourseDetails from "../../Pages/CourseDetails/CourseDetails";
 import CoursesDIv from "../../layouts/CoursesDIv";
+import PrivetRoutes from "../PrivetRoutes/PrivetRoutes";
+import ChackOut from "../../Pages/ChackOut/ChackOut";
 
 export const router = createBrowserRouter([
   {
@@ -60,6 +62,10 @@ export const router = createBrowserRouter([
         path: "/logout",
         element: <Logout></Logout>,
       },
+      {
+        path: "/chackout/:id",
+        element:<PrivetRoutes> <ChackOut></ChackOut> </PrivetRoutes>
+      }
     ],
   },
 ]);
