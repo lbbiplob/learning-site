@@ -7,6 +7,10 @@ const CourseDetails = () => {
     console.log(CourseDetails);
     return (
       <div className="card col-span-3 bg-base-100 shadow-xl">
+        <div className='mx-auto text-center mt-5'>
+          <p className='mb-3'>Download This Course Information</p>
+          <Link className="btn btn-primary">Download PDF</Link>
+        </div>
         <figure className="px-10 pt-10">
           <img src={image_url} alt={title} className="rounded-xl" />
         </figure>
@@ -23,16 +27,14 @@ const CourseDetails = () => {
             </h3>
           </div>
           <div>
-            <Link to={`/chackout/${id}`} className="btn btn-primary">Buy Now</Link>
+            <Link to={`/chackout/${id}`} className="btn btn-primary">
+              Buy Now
+            </Link>
           </div>
           <div>
             <Link to={"/courses"} className="btn btn-primary">
               All courses
             </Link>
-          </div>
-          <div>
-            <p>Download This Course Information</p>
-            <Link className="btn btn-primary">Download PDF</Link>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../../Images/Logo.png';
@@ -7,12 +8,15 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [darkMode , setDarkMode] = useState(false)
   const handelLogOut =()=>{
     logOut()
     .then(result=>{})
     .catch(error =>{})
   }
-  console.log(user);
+  const handelDarkMode=(e)=>{
+    setDarkMode(e.target.checked);
+  }
     return (
       <div className="navbar bg-primary text-primary-content">
         <div className="flex-1">
@@ -53,9 +57,12 @@ const Header = () => {
               </>
             )}
           </div>
-          <div className="dropdown dropdown-end">
+          <div
+            className="dropdown dropdown-end tooltip tooltip-right "
+            data-tip={user?.displayName}
+          >
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-8 rounded-full">
+              <div className="w-8 rounded-full ">
                 {user?.uid ? (
                   <img src={user?.photoURL} alt="" />
                 ) : (
@@ -67,8 +74,17 @@ const Header = () => {
         </div>
         <div className="form-control">
           <label className="label cursor-pointer">
-            <span className="label-text">Remember me</span>
-            <input type="checkbox" className="toggle"  />
+            {darkMode ? (
+              <span className="label-text mx-2 ">Dark</span>
+            ) : (
+              <span className="label-text mx-2 text-white">Light</span>
+            )}
+
+            <input
+              onClick={handelDarkMode}
+              type="checkbox"
+              className="toggle"
+            />
           </label>
         </div>
       </div>
