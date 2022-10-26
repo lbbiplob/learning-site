@@ -7,6 +7,8 @@ import FAQ from "../../Pages/FAQ/FAQ";
 import Register from "../../UserAuthentication/Register/Register"
 import Login from "../../UserAuthentication/Login/Login"
 import Logout from "../../UserAuthentication/LogOut/LogOut"
+import CourseDetails from "../../Pages/CourseDetails/CourseDetails";
+import CoursesDIv from "../../layouts/CoursesDIv";
 
 export const router = createBrowserRouter([
   {
@@ -23,9 +25,32 @@ export const router = createBrowserRouter([
       },
       {
         path: "/courses",
-        element: <Courses></Courses>,
-        loader: () => fetch("http://localhost:5000/courses"),
+        element: <CoursesDIv></CoursesDIv>,
+        children: [
+          {
+            path: "/courses",
+            element: <Courses></Courses>,
+            loader: () => fetch("http://localhost:5000/courses"),
+          },
+          {
+            path: "/courses/:id",
+            element: <CourseDetails></CourseDetails>,
+            loader: ({ params }) =>
+            fetch(`http://localhost:5000/course/${params.id}`),
+          },
+        ],
       },
+      // {
+      //   path: "/courses",
+      //   element: <Courses></Courses>,
+      //   loader: () => fetch("http://localhost:5000/courses"),
+      // },
+      // {
+      //   path: "/course/:id",
+      //   element: <CourseDetails></CourseDetails>,
+      //   loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`),
+      // },
+
       {
         path: "/blog",
         element: <Blogs></Blogs>,

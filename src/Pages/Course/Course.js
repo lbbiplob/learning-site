@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Course = ({ course }) => {
     const { details, image_url, title, teacher, rating , price} = course;
@@ -11,9 +12,10 @@ const Course = ({ course }) => {
         <h2 className="card-title">{title}</h2>
         <h4 className="font-semibold">Teacher: {teacher}</h4>
         <p>{details.slice(0, 100) + "...."}</p>
-        <div className="card-actions justify-end items-center">
+        <div className="card-actions flex justify-between items-center">
           <p className="text-blue-700 font-bold">Ratting: {rating?.number}</p>
-          <button className="btn btn-primary">Buy Now</button>
+          <h3 className="text-blue-700 font-bold ml-3">Price:${price}</h3>
+          <Link className="btn btn-primary">Buy Now</Link>
         </div>
       </div>
     </div>

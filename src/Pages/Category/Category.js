@@ -2,15 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Category = ({ category }) => {
-  console.log(category);
+    const {name, id} = category;
   return (
-    
-     
-        <li>
-          <Link>{category.name}</Link>
-        </li>
-      
-   
+    <li>
+      <Link to={`/course/${id}`}>{name}</Link>
+    </li>
   );
 };
 
