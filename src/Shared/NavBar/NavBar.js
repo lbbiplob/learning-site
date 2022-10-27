@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from "../../Images/Logo.png";
-import UserIcon from "../../Images/usericon.png";
 import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const NavBar = () => {
@@ -21,7 +20,7 @@ const NavBar = () => {
         <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
           <div>
             <div className="flex items-center justify-between py-3 md:py-5 md:block">
-              <Link className="flex items-center" to={'/'}>
+              <Link className="flex items-center" to={"/"}>
                 <img className="w-12" src={Logo} alt="" />
                 <h2 className="text-2xl font-bold">DesignOriel</h2>
               </Link>
@@ -97,38 +96,35 @@ const NavBar = () => {
                     </Link>
                   ) : (
                     <>
-                      <Link to={"/login"} className="ml-3 font-semibold">
-                        Login
-                      </Link>
                       <Link to={"/register"} className="ml-3 font-semibold ">
                         Register
+                      </Link>
+                      <Link to={"/login"} className="ml-3 font-semibold">
+                        Login
                       </Link>
                     </>
                   )}
                 </div>
                 <div
-                  className="dropdown dropdown-end tooltip tooltip-right "
+                  className=" tooltip tooltip-right cursor-pointer "
                   data-tip={user?.displayName}
                 >
-                  <label
-                    tabIndex={0}
-                    className="btn btn-ghost btn-circle avatar"
-                  >
-                    <div className="w-8 rounded-full ">
-                      {user?.uid ? (
-                        <img src={user?.photoURL} alt="" />
-                      ) : (
-                        <img src={UserIcon} alt="" />
-                      )}
-                    </div>
-                  </label>
+                  {user?.uid ? (
+                    <img
+                      className="w-8 rounded-full pointer "
+                      src={user?.photoURL}
+                      alt=""
+                    />
+                  ) : (
+                    ""
+                  )}
                 </div>
                 <div className="lg:form-control hidden">
                   <label className="label cursor-pointer">
                     {darkMode ? (
                       <span className="label-text mx-2 ">Dark</span>
                     ) : (
-                      <span className="label-text mx-2 text-white">Light</span>
+                      <span className="label-text mx-2 ">Light</span>
                     )}
 
                     <input
