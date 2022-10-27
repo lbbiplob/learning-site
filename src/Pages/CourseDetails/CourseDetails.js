@@ -27,7 +27,7 @@ const CourseDetails = () => {
         <figure className="px-10 pt-10">
           <img src={image_url} alt={title} className="rounded-xl" />
         </figure>
-        <div className="card-body items-center text-center">
+        <div className="card-body items-center text-center" >
           <h2 className="text-3xl font-bold">{title}</h2>
           <h3 className="text-xl font-bold">{teacher}</h3>
           <p>{details}</p>

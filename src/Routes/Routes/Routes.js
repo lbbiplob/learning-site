@@ -11,6 +11,7 @@ import CourseDetails from "../../Pages/CourseDetails/CourseDetails";
 import CoursesDIv from "../../layouts/CoursesDIv";
 import PrivetRoutes from "../PrivetRoutes/PrivetRoutes";
 import ChackOut from "../../Pages/ChackOut/ChackOut";
+import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -77,6 +78,11 @@ export const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`https://backend-assingment-10.vercel.app/course/${params.id}`),
       },
+     
+      {
+        path: '*',
+        element: <ErrorPage></ErrorPage>
+      }
     ],
   },
 ]);
