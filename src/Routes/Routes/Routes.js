@@ -11,8 +11,6 @@ import CourseDetails from "../../Pages/CourseDetails/CourseDetails";
 import CoursesDIv from "../../layouts/CoursesDIv";
 import PrivetRoutes from "../PrivetRoutes/PrivetRoutes";
 import ChackOut from "../../Pages/ChackOut/ChackOut";
-import NavBar from "../../Pages/NavBar/NavBar";
-
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -33,13 +31,16 @@ export const router = createBrowserRouter([
           {
             path: "/courses",
             element: <Courses></Courses>,
-            loader: () => fetch("http://localhost:5000/courses"),
+            loader: () =>
+              fetch("https://backend-assingment-10.vercel.app/courses"),
           },
           {
             path: "/courses/:id",
             element: <CourseDetails></CourseDetails>,
             loader: ({ params }) =>
-              fetch(`http://localhost:5000/course/${params.id}`),
+              fetch(
+                `https://backend-assingment-10.vercel.app/course/${params.id}`
+              ),
           },
         ],
       },
@@ -47,14 +48,12 @@ export const router = createBrowserRouter([
         path: "/blog",
         element: <Blogs></Blogs>,
       },
+
       {
         path: "/faq",
         element: <FAQ></FAQ>,
       },
-      {
-        path: "/nav",
-        element: <NavBar></NavBar>,
-      },
+
       {
         path: "/register",
         element: <Register></Register>,
@@ -76,7 +75,7 @@ export const router = createBrowserRouter([
           </PrivetRoutes>
         ),
         loader: ({ params }) =>
-        fetch(`http://localhost:5000/course/${params.id}`),
+          fetch(`https://backend-assingment-10.vercel.app/course/${params.id}`),
       },
     ],
   },

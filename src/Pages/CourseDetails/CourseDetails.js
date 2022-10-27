@@ -1,18 +1,17 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
-import { jsPDF } from "jspdf";
+
+
 
 const CourseDetails = () => {
     const courseDetails = useLoaderData();
     const { details, image_url, price, teacher, rating, title, id } = courseDetails;
     console.log(CourseDetails);
+    
 
     const handelDownloadPdf=()=>{
-        const doc = new jsPDF();
-
-        doc.text(`${title}`, 10, 10);
-      
-        doc.save("course-details.pdf");
+        
+        
     }
     return (
       <div

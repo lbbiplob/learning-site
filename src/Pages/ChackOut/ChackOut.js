@@ -1,22 +1,13 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
-import { ToastContainer, toast } from "react-toastify";
+
 
 const ChackOut = () => {
     const checkoutDetails = useLoaderData();
     const {  image_url, price, teacher,  title, } = checkoutDetails;
 
     const handelCheckOutMassage=()=>{
-        toast.success("🦄 Wow  you get premium access ", {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        });
+       
     }
     return (
       <div className="w-4/6 mx-auto mt-16">
@@ -39,7 +30,7 @@ const ChackOut = () => {
             </div>
           </div>
         </div>
-        <ToastContainer />
+      
       </div>
     );
 };

@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from "../../Images/Logo.png";
 import UserIcon from "../../Images/usericon.png";
-import { AuthContext } from '../../Shared/AuthProvider/AuthProvider';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const NavBar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -21,9 +21,9 @@ const NavBar = () => {
         <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
           <div>
             <div className="flex items-center justify-between py-3 md:py-5 md:block">
-              <Link className="flex items-center" href="javascript:void(0)">
+              <Link className="flex items-center" to={'/'}>
                 <img className="w-12" src={Logo} alt="" />
-                <h2 className="text-2xl font-bold">Logo</h2>
+                <h2 className="text-2xl font-bold">DesignOriel</h2>
               </Link>
               <div className="md:hidden">
                 <button

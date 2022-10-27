@@ -5,8 +5,8 @@ import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { useContext } from 'react';
 import { AuthContext } from '../../Shared/AuthProvider/AuthProvider';
 import { useState } from 'react';
- import { ToastContainer, toast } from "react-toastify";
- import "react-toastify/dist/ReactToastify.css";
+
+
 
 
 const Login = () => {
@@ -20,11 +20,9 @@ const Login = () => {
     const handelGoogleSingIn= () =>{
       googleLogin(provider)
       .then(result =>{
-        const user = result.user;
+      
         setError('')
-        navigate(from, {replace: true});
-        
-      })
+        navigate(from, {replace: true}); })
       .catch(error =>{
         console.error(error);
         setError(error.massage);
@@ -34,7 +32,6 @@ const Login = () => {
     const handelGithubLogIn =()=>{
       gitHubLogIn(gitHubProvider)
       .then(result=>{
-        const user = result.user;
         setError('')
         navigate(from, { replace: true });
       })
@@ -51,8 +48,6 @@ const Login = () => {
         const password = form.password.value;
         emailPasswordLogIn(email, password)
           .then((result) => {
-             
-            const user = result.user;
             setError("");
             form.reset();
             navigate(from, { replace: true });
@@ -125,7 +120,6 @@ const Login = () => {
             </button>
           </div>
         </div>
-        <ToastContainer />
       </div>
     );
 };
