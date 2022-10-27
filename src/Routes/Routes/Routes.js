@@ -11,6 +11,7 @@ import CourseDetails from "../../Pages/CourseDetails/CourseDetails";
 import CoursesDIv from "../../layouts/CoursesDIv";
 import PrivetRoutes from "../PrivetRoutes/PrivetRoutes";
 import ChackOut from "../../Pages/ChackOut/ChackOut";
+import NavBar from "../../Pages/NavBar/NavBar";
 
 export const router = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ export const router = createBrowserRouter([
       {
         path: "/faq",
         element: <FAQ></FAQ>,
+      },
+      {
+        path: "/nav",
+        element: <NavBar></NavBar>,
       },
       {
         path: "/register",

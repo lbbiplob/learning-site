@@ -21,27 +21,29 @@ const Header = () => {
       <div className="navbar bg-primary text-primary-content">
         <div className="flex-1">
           <div className="flex items-center">
-            <img className="w-12 rounded-full" src={Logo} alt="" />
-            <Link className=" text-2xl font-bold ml-3">DesignOriel</Link>
-          </div>
-          <div className="mx-auto">
-            <Link to={"/home"} className="ml-3 font-semibold ">
-              Home
-            </Link>
-            <Link to={"/courses"} className="ml-3 font-semibold">
-              Courses
-            </Link>
-            <Link to={"/blog"} className="ml-3 font-semibold">
-              Blog
-            </Link>
-            <Link to={"/faq"} className="ml-3 font-semibold">
-              FAQ
-            </Link>
+            <div className="lg:flex lg:items-center hidden">
+              <img className="w-12 rounded-full" src={Logo} alt="" />
+              <Link className=" text-2xl font-bold ml-3">DesignOriel</Link>
+            </div>
+            <div className="mx-auto">
+              <Link to={"/home"} className="ml-3 font-semibold ">
+                Home
+              </Link>
+              <Link to={"/courses"} className="ml-3 font-semibold">
+                Courses
+              </Link>
+              <Link to={"/blog"} className="ml-3 font-semibold">
+                Blog
+              </Link>
+              <Link to={"/faq"} className="ml-3 font-semibold">
+                FAQ
+              </Link>
+            </div>
           </div>
         </div>
 
         <div className="flex-none gap-2">
-          <div className="mx-auto">
+          <div className="lg:mx-auto ">
             {user?.uid ? (
               <Link onClick={handelLogOut} className="ml-3 font-semibold">
                 Logout
@@ -72,7 +74,7 @@ const Header = () => {
             </label>
           </div>
         </div>
-        <div className="form-control">
+        <div className="lg:form-control hidden">
           <label className="label cursor-pointer">
             {darkMode ? (
               <span className="label-text mx-2 ">Dark</span>

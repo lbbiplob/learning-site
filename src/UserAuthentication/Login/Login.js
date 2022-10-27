@@ -69,9 +69,9 @@ const Login = () => {
    
 
     return (
-      <div className="hero min-h-screen bg-base-200">
-        <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
-          <form onSubmit={hendelEmailPasswordSingIn} className="card-body">
+      <div className="hero min-h-screen bg-base-200 ">
+        <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100 w-11/12">
+          <form onSubmit={hendelEmailPasswordSingIn} className="card-body ">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -107,13 +107,19 @@ const Login = () => {
               <button className="btn btn-primary">Login</button>
             </div>
           </form>
-          <div className="flex justify-between items-center pb-8 px-8">
-            <button onClick={handelGoogleSingIn} className="btn  btn-primary ">
+          <div className="flex lg:justify-between lg:items-center flex-col pb-8 px-8">
+            <button
+              onClick={handelGoogleSingIn}
+              className="btn  btn-primary w-full"
+            >
               <FaGoogle className="mr-2" />
               Login with Google
             </button>
-            <p className="text-xl">Or</p>
-            <button onClick={handelGithubLogIn} className="btn btn-primary ">
+            <p className="text-xl text-center">Or</p>
+            <button
+              onClick={handelGithubLogIn}
+              className="btn btn-primary w-full"
+            >
               <FaGithub className="mr-2" />
               Login with GitHub
             </button>

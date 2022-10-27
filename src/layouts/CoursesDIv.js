@@ -4,7 +4,7 @@ import Allcategory from '../Pages/AllCatagory/Allcategory';
 
 const CoursesDIv = () => {
     return (
-      <div className="grid grid-cols-4 gap-4 max-w-7xl mx-auto mt-6">
+      <div className="grid lg:grid-cols-4 grid-cols-1  gap-4 lg:max-w-7xl mx-auto mt-6">
         <Allcategory></Allcategory>
         <Outlet></Outlet>
       </div>
