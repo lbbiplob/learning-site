@@ -12,6 +12,7 @@ import CoursesDIv from "../../layouts/CoursesDIv";
 import PrivetRoutes from "../PrivetRoutes/PrivetRoutes";
 import ChackOut from "../../Pages/ChackOut/ChackOut";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
+import DownLoadPdf from "../../Pages/DownloadPdf/DownLoadPdf";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -54,6 +55,14 @@ export const router = createBrowserRouter([
         path: "/faq",
         element: <FAQ></FAQ>,
       },
+      {
+        path: "/downloadpdf",
+        element: <DownLoadPdf></DownLoadPdf>,
+      },
+      {
+        path: "/ww",
+        element: <DownLoadPdf></DownLoadPdf>,
+      },
 
       {
         path: "/register",
@@ -78,11 +87,11 @@ export const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`https://backend-assingment-10.vercel.app/course/${params.id}`),
       },
-     
+
       {
-        path: '*',
-        element: <ErrorPage></ErrorPage>
-      }
+        path: "*",
+        element: <ErrorPage></ErrorPage>,
+      },
     ],
   },
 ]);

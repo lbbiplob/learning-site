@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import DownLoadPdf from '../DownloadPdf/DownLoadPdf';
 
 
 
@@ -10,7 +11,7 @@ const CourseDetails = () => {
     
 
     const handelDownloadPdf=()=>{
-        
+        DownLoadPdf()
         
     }
     return (
@@ -20,8 +21,8 @@ const CourseDetails = () => {
       >
         <div className="mx-auto text-center mt-5">
           <p className="mb-3">Download This Course Information</p>
-          <Link onClick={handelDownloadPdf} className="btn btn-primary">
-            Download PDF
+          <Link to={'/downloadpdf'} onClick={handelDownloadPdf} className="btn btn-primary">
+            Download Page
           </Link>
         </div>
         <figure className="px-10 pt-10">
