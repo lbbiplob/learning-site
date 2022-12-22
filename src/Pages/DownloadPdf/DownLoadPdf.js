@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Pdf from "react-to-pdf";
-import Photo from '../../Images/griphic.jpg'
+import Photo from "../../Images/griphic.jpg";
 
 const ref = React.createRef();
 
@@ -20,7 +20,7 @@ function DownLoadPdf() {
         style={{ width: 595, height: 842, background: "white" }}
         ref={ref}
       >
-        <h1 className="text-3xl">Courese information</h1>
+        <h1 className="text-3xl">Courses information</h1>
         <h1>
           graphic design all courses teacher are very expart. if you buy this
           course you can access this corse life time and get update content .
@@ -31,7 +31,7 @@ function DownLoadPdf() {
           <li>24/7 support </li>
           <li>Screen sharing option </li>
           <li>Lesion note </li>
-          <li> Assingment </li>
+          <li> Assignment </li>
         </ul>
 
         <img src={Photo} alt="" />
